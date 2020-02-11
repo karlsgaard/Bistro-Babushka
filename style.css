@@ -101,14 +101,26 @@ header nav a:hover {
 }
 
 .velkommen_kasse {
-    background-image: url(imgs/large/pavlova.jpg);
-
     width: 100vw;
-    height: 100vh;
+    height: 40vh;
     background-size: cover;
     background-position: 60% 10%;
     max-width: none;
     opacity: 50%;
+}
+
+.velkommen_kasse {
+    padding: 70px 0px;
+    background-image: url(imgs/large/pavlova.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#overskrift h1 {
+    font-size: 3rem;
+    border-bottom: solid orange thin;
 }
 
 /********menu slut *******/
@@ -117,8 +129,9 @@ header nav a:hover {
 /********kontakt start *******/
 
 #footer {
-    background-color: white;
-    margin: 20px;
+    background-color: whitesmoke;
+    /*    margin: 20px;
+    */
 }
 
 #footer h1 {
@@ -266,6 +279,7 @@ button.filter:hover {
 
 }
 
+/*
 @media screen and (min-width: 550px) .velkommen_kasse {
     margin: 0 auto;
     width: 80%;
@@ -273,7 +287,4 @@ button.filter:hover {
     padding: 40px 0px;
     box-shadow: 0px 0px 15px 0px rgba(56, 56, 56, 1);
 }
-
-@media screen and (min-width: 900px) .velkommen_kasse {
-    width: 50%;
-}
+*/
