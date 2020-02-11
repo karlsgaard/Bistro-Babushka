@@ -6,12 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Courier+Prime|Open+Sans+Condensed:300|Pathway+Gothic+One|Quicksand|Source+Code+Pro&display=swap" rel="stylesheet">
 </head>
+<header>
+    <nav>
+        <section id="overskrift">
+            <h1>BISTRO BABUSHKA</h1>
+        </section>
+
+        <div id="menuknap">☰</div>
+        <ul id="menu" class="hidden">
+            <ul> <a href="index.html">VELKOMMEN</a></ul>
+            <ul> <a href="menu.html">MENU</a></ul>
+            <ul> <a href="">NYHEDER</a></ul>
+            <ul> <a href="">BESTIL ONLINE</a></ul>
+            <ul> <a href=".kontakt">KONTAKT</a></ul>
+        </ul>
+    </nav>
+
+
+</header>
+
+<h1></h1>
+<nav id="filter_menu">
+    <button class="filter valgt" data-kategori="alle">Alle</button>
+    <button class="filter " data-kategori="forretter">Forrretter</button>
+    <button class="filter " data-kategori="hovedretter">Hovedretter</button>
+    <button class="filter " data-kategori="desserter">Desserter</button>
+    <button class="filter " data-kategori="sideorders">Sideorders</button>
+    <button class="filter " data-kategori="drikkevarer">Drikkevarer</button>
+</nav>
+
+<section id="menu_view">
+    <section class="data-container"></section>
+    <template>
+        <article id="alleMenu">
+            <img src="" alt="">
+            <h3 id="navn"></h3>
+            <p id="p1"></p>
+            <h4 id="pris"></h4>
+        </article>
+    </template>
+</section>
 
 
 
 <body>
-    <script src=""></script>
-</body>
-
-</html>
+    <script src="script.js"></script>
+</body></html>

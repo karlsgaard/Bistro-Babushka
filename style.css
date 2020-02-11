@@ -25,8 +25,15 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
 
+
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-family: 'Quicksand', sans-serif;
 }
 
 p {
@@ -100,22 +107,30 @@ header nav a:hover {
     margin: 0.5rem;
 }
 
-.velkommen_kasse {
+.splash_tekst {
     width: 100vw;
     height: 40vh;
     background-size: cover;
     background-position: 60% 10%;
     max-width: none;
     opacity: 50%;
-}
-
-.velkommen_kasse {
-    padding: 70px 0px;
     background-image: url(imgs/large/pavlova.jpg);
+    padding: 70px 0px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.splash_tekst p {
+    color: black;
+    /*    background-color: black;*/
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#splash .splash_tekst h1 {
+    color: white;
 }
 
 #overskrift h1 {
@@ -124,6 +139,19 @@ header nav a:hover {
 }
 
 /********menu slut *******/
+
+/********velkommen start *******/
+
+.velkommen_container {
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+#velkommen p {
+    text-align: left;
+    margin: 50px;
+    padding: 3px;
+}
 
 
 /********kontakt start *******/
@@ -223,12 +251,30 @@ button.filter:hover {
 
 /********buttons slut *******/
 
+/********snapscroll start *******/
 
-.menu_view {
-    border: 2px solid grey;
-    padding: 1vw;
-    margin: 1vw;
+
+#velkommen .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+#velkommen .col {
+    flex-grow: 3;
+    flex-basis: 400px;
+    margin: 1rem 0.5rem;
+    text-align: left;
+    margin: 1rem;
+}
+
+#container1 {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
 
 
 /********media q *******/

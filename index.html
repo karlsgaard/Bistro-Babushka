@@ -19,49 +19,47 @@
             <div id="menuknap">☰</div>
             <ul id="menu" class="hidden">
                 <ul> <a href="index.html">VELKOMMEN</a></ul>
-                <ul> <a href="">MENU</a></ul>
-                <ul> <a href="">NYheder</a></ul>
-                <ul> <a href="">BESTIL ONLINE</a></ul>
-                <ul> <a href="">KONTAKT</a></ul>
+                <ul> <a href="menu.html">MENU</a></ul>
+                <ul> <a href="">NYHEDER</a></ul>
+                <ul> <a href="">TAKE-AWAY</a></ul>
+                <ul> <a href=".kontakt">KONTAKT</a></ul>
             </ul>
         </nav>
 
 
     </header>
 
-    <div id="velkommen">
-        <div class="velkommen_kasse">
-            <h1>Velkommen</h1>
-            <p class="velkommen_p">Kæmpe udvalg af hjemmelavet russiske retter, Levering lige til døren, Bestil nemt og hurtigt. Bistro Babushka er en unik take away restaurant, der ikke ligner alle de andre. Vi går meget op i kvalitet og at alt vores mad er hjemmelavet. Vi tager dig med på en rejse til Rusland, og det er helt ikke ikke din sidste rejse hertil. </p>
-
+    <div id="splash">
+        <div class="splash_tekst">
+            <h1>B I S T R O </h1>
+            <h1>B A B U S H K A</h1>
+            <p>EN UNIK SMAGSOPLEVELSE </p>
         </div>
     </div>
 
-    <h1></h1>
-    <nav id="filter_menu">
-        <button class="filter valgt" data-kategori="alle">Alle</button>
-        <button class="filter " data-kategori="forretter">Forrretter</button>
-        <button class="filter " data-kategori="hovedretter">Hovedretter</button>
-        <button class="filter " data-kategori="desserter">Desserter</button>
-        <button class="filter " data-kategori="sideorders">Sideorders</button>
-        <button class="filter " data-kategori="drikkevarer">Drikkevarer</button>
-    </nav>
+    <section id="velkommen">
+        <div class="sectionwrapper">
+            <div class="col">
+                <h1>AFTENSMAD HOS BISTRO BABUSHKA</h1>
 
-    <section id="menu_view">
-        <section class="data-container"></section>
-        <template>
-            <article id="alleMenu">
-                <img src="" alt="">
-                <h3 id="navn"></h3>
-                <p id="p1"></p>
-                <h4 id="pris"></h4>
-            </article>
-        </template>
+                <p>Er du på udkig efter den unikke madoplevelse i København, så behøver du ikke lede længere. Bistro Babushka byder nemlig på alt, hvad hjertet begærer, når det gælder en god middag, såvel som frokost i hyggelige omgivelser.
+                </p>
+
+            </div>
+
+            <div class="col">
+                <div id="container1">
+                    <img src="imgs/small/caviarbruschetta-sm.jpg" alt="billede1">
+
+                    <img src="imgs/small/russisktapas-sm.jpg" alt="billede4">
+
+                    <img src="imgs/small/kartofler-sm.jpg" alt="billede2">
+                </div>
+            </div>
+        </div>
+
+
     </section>
-
-
-    <section id="splash"></section>
-
 
 
     <footer id="footer">
@@ -89,87 +87,6 @@
     <!-- her starter javascript-->
 
 
-    <script>
-        const endpoint = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
-
-        let menu = [];
-
-        let filter = "alle";
-
-        document.addEventListener("DOMContentLoaded", start);
-
-        window.addEventListener("load", sidenVises)
-
-        function start() {
-            loadData();
-            buttons();
-        }
-
-        async function loadData() {
-            const response = await fetch(endpoint);
-            console.log(response);
-            menu = await response.json();
-            console.log(menu);
-
-            visMenu();
-        }
-
-        function visMenu() {
-            const listevisning = document.querySelector(".data-container");
-            const template = document.querySelector("template");
-
-            listevisning.innerHTML = "";
-
-            menu.feed.entry.forEach(mad => {
-                if (filter == "alle" || filter == mad.gsx$kategori.$t) {
-
-                    let klon = template.cloneNode(true).content;
-
-                    klon.querySelector("img").src = "imgs/small/" + mad.gsx$billede.$t + "-sm.jpg";
-                    klon.querySelector("img").alt = "billede af" + mad.gsx$navn.$t;
-
-                    klon.querySelector("#navn").textContent = mad.gsx$navn.$t;
-                    klon.querySelector("#p1").textContent = mad.gsx$kort.$t;
-                    klon.querySelector("#pris").textContent = mad.gsx$pris.$t;
-
-                    listevisning.appendChild(klon);
-                }
-            })
-        }
-
-        function buttons() {
-            document.querySelectorAll(".filter").forEach(elm => {
-                elm.addEventListener("click", filtrering);
-            })
-        }
-
-        function filtrering() {
-            filter = this.dataset.kategori;
-            document.querySelector("h1").textContent = this.textContent;
-            document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("valgt");
-            })
-
-            this.classList.add("valgt");
-            visMenu();
-        }
-
-        function sidenVises() {
-            console.log("sidenVises");
-            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
-        }
-
-        function toggleMenu() {
-            console.log("toggleMenu");
-            document.querySelector("#menu").classList.toggle("hidden");
-
-            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
-            if (erSkjult == true) {
-                document.querySelector("#menuknap").textContent = "☰";
-            } else {
-                document.querySelector("#menuknap").textContent = "X";
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body></html>
