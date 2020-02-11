@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="menuknap">☰</div>
+            <ul id="menu" class="hidden">
+                <li> <a href="index.html">VELKOMMEN</a></li>
+                <li> <a href="">MENU</a></li>
+                <li> <a href="">NYheder</a></li>
+                <li> <a href="">BESTIL ONLINE</a></li>
+                <li> <a href="">KONTAKT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="splash"></section>
+
+    <h1></h1>
+    <nav id="filter_menu">
+        <button class="filter valgt" data-kategori="alle">Alle</button>
+        <button class="filter " data-kategori="forretter">Forrretter</button>
+        <button class="filter " data-kategori="hovedretter">Hovedretter</button>
+        <button class="filter " data-kategori="desserter">Desserter</button>
+        <button class="filter " data-kategori="sideorders">Sideorders</button>
+        <button class="filter " data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
+
+    <section id="menu_view">
+        <section class="data-container"></section>
+        <template>
+            <article id="alleMenu">
+                <img src="" alt="">
+                <h3 id="navn"></h3>
+                <p id="p1"></p>
+                <h4 id="pris"></h4>
+            </article>
+        </template>
+    </section>
+
+    <footer id="footer">
+        <div class="sectionwrapper">
+            <div class="aabningstider">
+                <h1>ÅBNINGSTIDER:</h1>
+
+                <p>Mandag - Fredag 10:00-23:00</p>
+                <p>Lørdag 10:00-02:00</p>
+                <p>Søndag 10:00-24:00</p>
+
+            </div>
+            <div class="kontakt">
+                <h1>KONTAKT:</h1>
+                <p>Lygten 16</p>
+                <p>2400 København NV</p>
+                <a href="https://www.google.com/maps/place/Beauty+By+Louise/@55.6487125,12.1307559,17z/data=!3m1!4b1!4m5!3m4!1s0x46525fd979e76f9d:0xf7c239d2da8d9b80!8m2!3d55.6487095!4d12.1329446"> Se kort</a>
+
+                <p>Tlf: +45 12 34 56 78 </p>
+            </div>
+
+            <div class="some">
+                <div class="insta">
+                    <a href=""><img src=""></a>
+                </div>
+                <div class="face">
+                    <a href=""><img src=""></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="andcopy">
+            &copy;Kea MMD - Isabella Karlsgaard - 2020</div>
+    </footer>
+    <!-- her starter javascript-->
+
+
+
+
+
+    <script>
+        const endpoint = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
+
+        let menu = [];
+
+        let filter = "alle";
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        window.addEventListener("load", sidenVises)
+
+        function start() {
+            loadData();
+            buttons();
+        }
+
+        async function loadData() {
+            const response = await fetch(endpoint);
+            console.log(response);
+            menu = await response.json();
+            console.log(menu);
+
+            visMenu();
+        }
+
+        function visMenu() {
+            const listevisning = document.querySelector(".data-container");
+            const template = document.querySelector("template");
+
+            listevisning.innerHTML = "";
+
+            menu.feed.entry.forEach(mad => {
+                if (filter == "alle" || filter == mad.gsx$kategori.$t) {
+
+                    let klon = template.cloneNode(true).content;
+
+                    klon.querySelector("img").src = "imgs/small/" + mad.gsx$billede.$t + "-sm.jpg";
+                    klon.querySelector("img").alt = "billede af" + mad.gsx$navn.$t;
+
+                    klon.querySelector("#navn").textContent = mad.gsx$navn.$t;
+                    klon.querySelector("#p1").textContent = mad.gsx$kort.$t;
+                    klon.querySelector("#pris").textContent = mad.gsx$pris.$t;
+
+                    listevisning.appendChild(klon);
+                }
+            })
+        }
+
+        function buttons() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+        }
+
+        function filtrering() {
+            filter = this.dataset.kategori;
+            document.querySelector("h1").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            })
+
+            this.classList.add("valgt");
+            visMenu();
+        }
+
+        function sidenVises() {
+            console.log("sidenVises");
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+        }
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

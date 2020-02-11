@@ -1,0 +1,180 @@
+/*---- Generelle indstillinger ------ */
+
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+/*---- Generelle indstillinger  SLUT ------ */
+
+
+/***--------------Menu-----------***/
+
+header {
+    width: 100vw;
+    background-color: #a07d6a;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+header nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header a {
+    padding: 0.5rem;
+    display: flex;
+    color: black;
+}
+
+
+header nav a:visited {
+    color: white;
+}
+
+.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    display: none;
+}
+
+#menuknap {
+    display: inline-block;
+    color: black;
+    margin: 0.5rem;
+}
+
+/********menu slut *******/
+
+/********kontakt start *******/
+
+#footer {
+    padding: 2rem;
+    background-color: white;
+    margin: 20px;
+
+
+}
+
+
+#footer h1 {
+    color: black;
+    font-size: 2rem;
+}
+
+#footer .sectionwrapper {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    margin: 10px;
+    grid-gap: 5px;
+    text-align: left;
+
+}
+
+#footer .aabningstider p {
+
+
+    color: black;
+    word-spacing: 8rem;
+}
+
+#footer .kontakt p {
+    color: black;
+}
+
+#footer .kontakt a {
+    color: #c7aea0;
+}
+
+#footer .aabningstider .kontakt .some {
+    flex-grow: 0;
+    flex-basis: 500px;
+}
+
+#footer .some {
+    display: flex;
+}
+
+.insta {
+    background-size: cover;
+    margin-right: 2rem;
+    margin-left: 4rem;
+    height: 10.3vw;
+    width: 10.2vw;
+}
+
+.face {
+    background-size: cover;
+    height: 10.3vw;
+    width: 10.2vw;
+}
+
+.andcopy {
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/********kontakt slut *******/
+
+
+
+
+.menu_view {
+    border: 2px solid grey;
+    padding: 1vw;
+    margin: 1vw;
+}
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin: 10px;
+    grid-gap: 5px;
+}
+
+
+.valgt {
+    color: red;
+}
+
+.menu {
+    text-align: center;
+
+}
+
+h1 {
+    text-align: center;
+}
