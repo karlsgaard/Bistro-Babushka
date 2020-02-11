@@ -27,8 +27,6 @@ h1 {
 h2 {
     font-size: 1rem;
     font-family: 'Quicksand', sans-serif;
-
-
 }
 
 h3 {
@@ -42,7 +40,7 @@ p {
 
 .data-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     margin: 10px;
     grid-gap: 5px;
 }
@@ -50,8 +48,6 @@ p {
 .valgt {
     color: red;
 }
-
-
 
 /*---- Generelle indstillinger  SLUT ------ */
 
@@ -173,7 +169,6 @@ header nav a:hover {
     margin: 10px;
     grid-gap: 5px;
     border-top: solid 1px grey;
-
 }
 
 #footer .aabningstider p {
@@ -189,38 +184,6 @@ header nav a:hover {
 #footer .kontakt a {
     color: #c7aea0;
 }
-
-/*
-#footer .aabningstider .kontakt .some {
-    flex-grow: 2;
-    flex-basis: 300px;
-}
-*/
-
-/*
-#footer .some {
-    display: flex;
-}
-
-.insta {
-    background-size: cover;
-    margin-right: 2rem;
-    margin-left: 4rem;
-    height: 10.3vw;
-    width: 10.2vw;
-}
-
-.face {
-    background-size: cover;
-    height: 10.3vw;
-    width: 10.2vw;
-}
-
-.andcopy {
-    color: white;
-    text-align: center;
-}
-*/
 
 /********kontakt slut *******/
 
@@ -275,8 +238,6 @@ button.filter:hover {
     width: 100%;
 }
 
-
-
 /********media q *******/
 
 @media only screen and (min-width:800px) {
@@ -309,28 +270,3 @@ button.filter:hover {
         text-decoration: none;
         color: black;
     }
-
-
-    /*
-    #logo_splash {
-        background-image: url(billeder/logo.svg);
-        height: 30vw;
-        width: 60vw;
-        background-size: cover;
-        position: absolute;
-        top: 20vw;
-        left: 20vw;
-    }
-*/
-
-}
-
-/*
-@media screen and (min-width: 550px) .velkommen_kasse {
-    margin: 0 auto;
-    width: 80%;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 40px 0px;
-    box-shadow: 0px 0px 15px 0px rgba(56, 56, 56, 1);
-}
-*/
