@@ -7,6 +7,7 @@ body {
 
 img {
     width: 100%;
+    box-shadow: 0px 0px 15px 0px rgba(179, 179, 179, 1);
 }
 
 section {
@@ -16,17 +17,34 @@ section {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+
 }
 
 h2 {
     font-size: 1.5rem;
+
 }
 
 p {
-    font-size: 1.2rem;
-    font-weight: lighter;
+    font-family: 'Quicksand', sans-serif;
 }
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin: 10px;
+    grid-gap: 5px;
+}
+
+.valgt {
+    color: red;
+}
+
+
 
 /*---- Generelle indstillinger  SLUT ------ */
 
@@ -35,14 +53,15 @@ p {
 
 header {
     width: 100vw;
-    background-color: #a07d6a;
+    background-color: whitesmoke;
+
 }
 
 header nav {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
 }
 
 
@@ -50,17 +69,23 @@ header nav a {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
+    align-content: center;
 }
 
 header a {
     padding: 0.5rem;
     display: flex;
     color: black;
+    font-family: 'Quicksand', sans-serif;
 }
 
 
 header nav a:visited {
-    color: white;
+    color: black;
+}
+
+header nav a:hover {
+    color: darksalmon;
 }
 
 .hidden {
@@ -75,54 +100,63 @@ header nav a:visited {
     margin: 0.5rem;
 }
 
+.velkommen_kasse {
+    background-image: url(imgs/large/pavlova.jpg);
+
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: 60% 10%;
+    max-width: none;
+    opacity: 50%;
+}
+
 /********menu slut *******/
+
 
 /********kontakt start *******/
 
 #footer {
-    padding: 2rem;
     background-color: white;
     margin: 20px;
-
-
 }
-
 
 #footer h1 {
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #footer .sectionwrapper {
-
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     margin: 10px;
     grid-gap: 5px;
-    text-align: left;
+    border-top: solid 1px grey;
 
 }
 
 #footer .aabningstider p {
-
-
     color: black;
-    word-spacing: 8rem;
+    text-align: center;
 }
 
 #footer .kontakt p {
     color: black;
+    text-align: center;
 }
 
 #footer .kontakt a {
     color: #c7aea0;
 }
 
+/*
 #footer .aabningstider .kontakt .some {
-    flex-grow: 0;
-    flex-basis: 500px;
+    flex-grow: 2;
+    flex-basis: 300px;
 }
+*/
 
+/*
 #footer .some {
     display: flex;
 }
@@ -144,12 +178,37 @@ header nav a:visited {
 .andcopy {
     color: white;
     text-align: center;
-    padding: 1rem;
 }
+*/
 
 /********kontakt slut *******/
 
+/********buttons start *******/
 
+#filter_menu {
+    margin: 2vw;
+    align-content: center;
+}
+
+button.filter {
+    width: 16%;
+    font-weight: 100;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 1px;
+    padding: 10px 20px;
+    border: 0;
+    border-bottom: solid 1px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+button.filter:hover {
+    background-color: darksalmon;
+}
+
+/********buttons slut *******/
 
 
 .menu_view {
@@ -158,23 +217,63 @@ header nav a:visited {
     margin: 1vw;
 }
 
-.data-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    margin: 10px;
-    grid-gap: 5px;
+
+/********media q *******/
+
+@media only screen and (min-width:800px) {
+
+    #menuknap {
+        display: none;
+    }
+
+    .hidden {
+        transform: translateX(0);
+        opacity: 1;
+        display: inline-block;
+    }
+
+    header ul {
+        display: inline-block;
+        letter-spacing: 1px;
+
+    }
+
+    header nav {
+        padding: 0.1rem;
+    }
+
+
+    header nav li {
+        padding: 0.3rem;
+        background-color: transparent;
+        margin: 0.8rem;
+        text-decoration: none;
+        color: black;
+    }
+
+
+    /*
+    #logo_splash {
+        background-image: url(billeder/logo.svg);
+        height: 30vw;
+        width: 60vw;
+        background-size: cover;
+        position: absolute;
+        top: 20vw;
+        left: 20vw;
+    }
+*/
+
 }
 
-
-.valgt {
-    color: red;
+@media screen and (min-width: 550px) .velkommen_kasse {
+    margin: 0 auto;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px 0px;
+    box-shadow: 0px 0px 15px 0px rgba(56, 56, 56, 1);
 }
 
-.menu {
-    text-align: center;
-
-}
-
-h1 {
-    text-align: center;
+@media screen and (min-width: 900px) .velkommen_kasse {
+    width: 50%;
 }
